@@ -1,33 +1,49 @@
 import React, { Component } from 'react';
-import Contacts from './components/contacts';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'; 
+import { Switch, Route, Link } from 'react-router-dom'; 
+import { Home, Sports, Entertainment, Bangladesh, Business } from './pages'
 import './App.css'; 
 
-    class App extends Component {
-      render() { 
-        return ( 
-           <Router> 
-               <div className="App"> 
-                <ul className="App-header"> 
-                  <li> 
-                    <Link to="/">Home</Link> 
-                  </li> 
-                  <li> 
-                    <Link to="/about">About Us</Link> 
-                  </li> 
-                  <li> 
-                    <Link to="/contact">Contact Us</Link> 
-                  </li> 
-                </ul> 
-                <Switch> 
-                  <Route exact path='/' component={Contacts}></Route> 
-                  {/* <Route exact path='/about' component={About}></Route> 
-                  <Route exact path='/contact' component={Contact}></Route>  */}
-                </Switch> 
-              </div> 
-           </Router> 
-       ); 
-      } 
-    }
+const Main = () => (
+  <main>
+    <Switch>
+      <Route exact path='/' component={Home} />
+      <Route exact path='/Sports' component={Sports}/>
+      <Route exact path='/Entertainment' component={Entertainment} />
+      <Route exact path='/Bangladesh' component={Bangladesh} />
+      <Route exact path='/Business' component={Business}/>
+    </Switch>
+  </main>
+)
 
-    export default App;
+const Header = () => (
+  <div>
+    <nav className="navbar navbar-expand-lg navbar-light  bg-light">
+      <Link className="navbar-brand" to="/">Home</Link>
+      <ul className="navbar-nav">
+        <NavLink path="/Sports" text="Sports" />
+        <NavLink path="/Entertainment" text="Entertainment" />
+        <NavLink path="/Bangladesh" text="Bangladesh" />
+        <NavLink path="/Business" text="Business" />
+      </ul>
+    </nav>
+  </div>
+)
+
+class NavLink extends Component {
+  render() {
+      return (
+        <li className="nav-item" >
+                  <Link className="nav-link" to={this.props.path}>{this.props.text}</Link>
+        </li>
+      );
+  }
+}
+
+const App = () => (
+  <div>
+    <Header />
+    <Main />
+  </div>
+)
+
+export default App;
