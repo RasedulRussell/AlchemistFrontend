@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import Contacts from './components/contacts'
+import CategoryHomePage from './components/categoryHomePage';
+
 
 export const Home = () => (
     <Contacts></Contacts>
 )
 
 export const Sports = () => (
-    <div>
-        <h1>All Sports related News Will be shown</h1>
-    </div>
+    <CategoryHomePage
+        title={"Sports"}
+        url={"http://localhost:8080/articles/sports"}>
+    </CategoryHomePage>
 )
 
 export const Entertainment = () => (
-    <div>
-        <h1>Entertainment</h1>
-    </div>
+    <CategoryHomePage
+        title={"Entertainment"}
+        url={"http://localhost:8080/articles/entertainment"}>
+    </CategoryHomePage>
+    
 )
 
 export const Bangladesh = () => (
