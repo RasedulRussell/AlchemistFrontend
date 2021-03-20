@@ -23,13 +23,15 @@ export const Entertainment = () => (
 )
 
 export const Bangladesh = () => (
-    <div>
-        <h1>Bangladesh</h1>
-    </div>
+    <CategoryHomePage
+        title={"Bangladesh"}
+        url={"http://localhost:8080/articles/bangladesh"}>
+    </CategoryHomePage>
 )
 
-export const Business = () => (
-    <div>
-        <h1>Business</h1>
-    </div>
+export const Others = () => (
+    <CategoryHomePage
+        title={"Others"}
+        url={"http://localhost:8080/articles/other"}>
+    </CategoryHomePage>
 )

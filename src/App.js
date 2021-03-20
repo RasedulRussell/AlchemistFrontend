@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'; 
-import { Home, Sports, Entertainment, Bangladesh, Business } from './pages'
+import { Home, Sports, Entertainment, Bangladesh, Others } from './pages'
 import './App.css'; 
 
 const Main = () => (
@@ -10,7 +10,7 @@ const Main = () => (
       <Route exact path='/Sports' component={Sports}/>
       <Route exact path='/Entertainment' component={Entertainment} />
       <Route exact path='/Bangladesh' component={Bangladesh} />
-      <Route exact path='/Business' component={Business}/>
+      <Route exact path='/other' component={Others}/>
     </Switch>
   </main>
 )
@@ -23,7 +23,7 @@ const Header = () => (
         <NavLink path="/Sports" text="Sports" />
         <NavLink path="/Entertainment" text="Entertainment" />
         <NavLink path="/Bangladesh" text="Bangladesh" />
-        <NavLink path="/Business" text="Business" />
+        <NavLink path="/other" text="Others" />
       </ul>
     </nav>
   </div>
