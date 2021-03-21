@@ -21,10 +21,13 @@ class CategoryHomePage extends React.Component{
         <center><h1>{this.props.title}</h1></center>
         {this.state.contacts.map((contact) => (
           <div class="card">
+            <img 
+                src= {contact.mediaurl}
+               alt="new"
+            />
             <div class="card-body">
               <h6>{contact.title}</h6>
               <p> {contact.details} </p>
-              <a href="url">{contact.url}</a>
             </div>
           </div>
         ))}

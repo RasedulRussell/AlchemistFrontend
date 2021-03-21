@@ -10,7 +10,7 @@ export const Home = () => (
 export const Sports = () => (
     <CategoryHomePage
         title={"Sports"}
-        url={"http://localhost:8080/articles/sports"}>
+        url={"http://localhost:8080/articles/sport"}>
     </CategoryHomePage>
 )
 
