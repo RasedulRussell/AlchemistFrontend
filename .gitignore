@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/components/categoryHomePage.js
+.vscode/launch.json
+db.json
