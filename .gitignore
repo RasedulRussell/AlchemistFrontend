@@ -24,3 +24,5 @@ yarn-error.log*
 src/components/categoryHomePage.js
 .vscode/launch.json
 db.json
+.eslintcache
+.eslintcache

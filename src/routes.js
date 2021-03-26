@@ -15,43 +15,42 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from "views/Dashboard.js";
+import HomePage from "views/HomePage.js";
 import World from "views/World.js";
-import TableList from "views/TableList.js";
-import Typography from "views/Typography.js";
+import Business from "views/Business.js";
+import Sports from "views/Sports.js";
 import Technology from "views/Technology.js";
 import Maps from "views/Maps.js";
-import Notifications from "views/Notifications.js";
-import Upgrade from "views/Upgrade.js";
+import Entertainment from "views/Entertainment.js";
 
 const dashboardRoutes = [
   
   {
-    path: "/dashboard",
+    path: "/home-page",
     name: "Recent News",
     icon: "nc-icon nc-chart-pie-35",
-    component: Dashboard,
+    component: HomePage,
     layout: "/admin",
   },
   {
-    path: "/user",
+    path: "/world",
     name: "World",
     icon: "nc-icon nc-planet",
     component: World,
     layout: "/admin",
   },
   {
-    path: "/table",
+    path: "/business",
     name: "Business",
     icon: "nc-icon nc-bag",
-    component: TableList,
+    component: Business,
     layout: "/admin",
   },
   {
-    path: "/typography",
+    path: "/sports",
     name: "Sports",
     icon: "nc-icon nc-paper-2",
-    component: Typography,
+    component: Sports,
     layout: "/admin",
   },
   {
@@ -62,10 +61,10 @@ const dashboardRoutes = [
     layout: "/admin",
   },
   {
-    path: "/notifications",
+    path: "/entertainment",
     name: "Entertainment",
     icon: "nc-icon nc-bell-55",
-    component: Notifications,
+    component: Entertainment,
     layout: "/admin",
   },
   {
