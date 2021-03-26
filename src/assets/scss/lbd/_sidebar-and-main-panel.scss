@@ -188,10 +188,11 @@ body > .navbar-collapse{
             padding: $padding-small-vertical $padding-zero;
             display: block;
             font-size: $font-size-large;
-            color: $white-color;
+            color: black;
             text-align: center;
             font-weight: $font-weight-normal;
             line-height: 30px;
+            font-family: system-ui;
         }
     }
 
