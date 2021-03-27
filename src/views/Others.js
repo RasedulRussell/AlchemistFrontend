@@ -7,20 +7,20 @@ import {
   Card,
   Navbar,
   Nav,
+  Table,
   Container,
   Row,
   Col,
-  CardColumns
 } from "react-bootstrap";
 
 import CategoryPage from "./common/CategoryPage"
 
-function Technology() {
+function Others() {
   return (
     <>
-    <CategoryPage title={"Home"} url={"http://localhost:8080/articles/technology"}></CategoryPage>
+    <CategoryPage title={"Home"} url={"http://localhost:8080/articles/others"}></CategoryPage>
     </>
   );
 }
 
-export default Technology;
+export default Others;

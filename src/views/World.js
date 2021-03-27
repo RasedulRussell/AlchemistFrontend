@@ -18,7 +18,7 @@ import CategoryPage from "./common/CategoryPage"
 function World() {
   return (
     <>
-    <CategoryPage title={"Home"} url={"http://localhost:8080/articles"}></CategoryPage>
+    <CategoryPage title={"Home"} url={"http://localhost:8080/articles/world"}></CategoryPage>
     </>
   );
 }

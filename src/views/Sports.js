@@ -17,7 +17,7 @@ import CategoryPage from "./common/CategoryPage"
 function Sports() {
   return (
     <>
-    <CategoryPage title={"Home"} url={"http://localhost:8080/articles"}></CategoryPage>
+    <CategoryPage title={"Home"} url={"http://localhost:8080/articles/sports"}></CategoryPage>
     </>
   );
 }

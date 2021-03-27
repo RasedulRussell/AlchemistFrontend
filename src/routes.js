@@ -1,20 +1,4 @@
-/*!
 
-=========================================================
-* Light Bootstrap Dashboard React - v2.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import HomePage from "views/HomePage.js";
 import World from "views/World.js";
 import Business from "views/Business.js";
@@ -22,6 +6,8 @@ import Sports from "views/Sports.js";
 import Technology from "views/Technology.js";
 import Maps from "views/Maps.js";
 import Entertainment from "views/Entertainment.js";
+import Bangladesh from "views/Bangladesh.js";
+import Others from "views/Others.js";
 
 const dashboardRoutes = [
   
@@ -40,6 +26,13 @@ const dashboardRoutes = [
     layout: "/news",
   },
   {
+    path: "/bangladesh",
+    name: "Bangladesh",
+    icon: "nc-icon nc-paper-2", ///<i class="flag flag-bangladesh"></i>
+    component: Bangladesh,
+    layout: "/news",
+  },
+  {
     path: "/business",
     name: "Business",
     icon: "nc-icon nc-bag",
@@ -54,7 +47,7 @@ const dashboardRoutes = [
     layout: "/news",
   },
   {
-    path: "/icons",
+    path: "/technology",
     name: "Technology",
     icon: "nc-icon nc-atom",
     component: Technology,
@@ -63,15 +56,15 @@ const dashboardRoutes = [
   {
     path: "/entertainment",
     name: "Entertainment",
-    icon: "nc-icon nc-bell-55",
+    icon: "nc-icon nc-camera-20",
     component: Entertainment,
     layout: "/news",
   },
   {
-    path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-pin-3",
-    component: Maps,
+    path: "/others",
+    name: "Others",
+    icon: "nc-icon nc-paper-2",
+    component: Others,
     layout: "/news",
   },
 ];
