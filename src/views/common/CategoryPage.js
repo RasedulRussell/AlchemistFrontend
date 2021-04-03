@@ -32,7 +32,8 @@ class CategoryPage extends React.Component {
     return (
       <Container fluid>
         <Row className="justify-content-md-center">
-          <Col md={1}></Col>
+          <Col md={1}>
+          </Col>
           <Col md={7}>
             {
               this.state.contacts.map((contact) => (
@@ -40,14 +41,19 @@ class CategoryPage extends React.Component {
                   <Card.Img variant="top" src={contact.mediaurl} />
                   <Card.Body>
                     <Card.Title>
-                      <h3>{contact.title}</h3>
+                      <h3>
+                      <a href={contact.url} target="fred" style={{color: 'black'}}>
+                        {contact.title}
+                      </a>
+                      </h3>
                     </Card.Title>
                     <Card.Text>
-                      {contact.details}
+                    <a href={contact.url} target="fred" style={{color: 'black'}}>
+                        {contact.details}
+                    </a>
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    {contact.publishTime}
                   </Card.Footer>
                 </Card>
               ))
