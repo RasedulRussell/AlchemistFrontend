@@ -15,8 +15,8 @@ function Sidebar({ color, image, routes }) {
     <div className="sidebar" data-image={image} data-color={color}>
       <div className="sidebar-wrapper">
         <div className="logo d-flex align-items-center justify-content-start">
-          <a className="simple-text" href="#">
-            Alchemist News
+          <a className="simple-text" style={{fontWeight: "bold"}} href="#" >
+            Citizen Portal
           </a>
         </div>
         <Nav>

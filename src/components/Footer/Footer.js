@@ -21,7 +21,7 @@ class Footer extends Component {
               </li>
               <li>
                 <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                  Project Alchemy
+                  Citizen Portal
                 </a>
               </li>
               <li>

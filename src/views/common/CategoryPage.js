@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import ReactPaginate from 'react-paginate';
 
 import {
   Badge,
@@ -11,59 +13,102 @@ import {
   Col,
   CardColumns
 } from "react-bootstrap";
+import { getSupportedCodeFixes } from 'typescript';
 
 class CategoryPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: []
+        offset: 0,
+        data: [],
+        perPage: 10,
+        currentPage: 0
     };
-  }
-  componentDidMount() {
-    fetch(this.props.url)
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({ contacts: data })
-      })
-      .catch(console.log)
-  }
-
-  render() {
-    return (
-      <Container fluid>
+    this.handlePageClick = this
+        .handlePageClick
+        .bind(this);
+}
+receivedData() {
+    axios
+        .get(this.props.url)
+        .then(res => {
+            const data = res.data;
+            const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+            const postData = slice.map(contact => <React.Fragment>
+        <Container fluid>
         <Row className="justify-content-md-center">
           <Col md={1}>
           </Col>
           <Col md={7}>
             {
-              this.state.contacts.map((contact) => (
-                <Card key={contact.id}>
-                  <Card.Img variant="top" src={contact.mediaurl} />
-                  <Card.Body>
-                    <Card.Title>
-                      <h3>
-                      <a href={contact.url} target="fred" style={{color: 'black'}}>
-                        {contact.title}
-                      </a>
-                      </h3>
-                    </Card.Title>
-                    <Card.Text>
-                    <a href={contact.url} target="fred" style={{color: 'black'}}>
-                        {contact.details}
-                    </a>
-                    </Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                  </Card.Footer>
-                </Card>
-              ))
+              <Card key={contact.id}>
+              <Card.Img variant="top" src={contact.mediaurl} />
+              <Card.Body>
+                <Card.Title>
+                  <h3>
+                  <a href={contact.url} target="fred" style={{color: 'black'}}>
+                    {contact.title}
+                  </a>
+                  </h3>
+                </Card.Title>
+                <Card.Text>
+                <a href={contact.url} target="fred" style={{color: 'black'}}>
+                    {contact.details}
+                </a>
+                </Card.Text>
+              </Card.Body>
+              <Card.Footer>
+              </Card.Footer>
+            </Card>
             }
           </Col>
           <Col md={4}></Col>
         </Row>
       </Container>
+            </React.Fragment>)
+            this.setState({
+                pageCount: Math.ceil(data.length / this.state.perPage),
+                postData
+            })
+        });
+}
+handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    const offset = selectedPage * this.state.perPage;
+
+    this.setState({
+        currentPage: selectedPage,
+        offset: offset
+    }, () => {
+        this.receivedData()
+    });
+
+};
+
+componentDidMount() {
+    this.receivedData()
+}
+
+render() {
+    return (
+        <div>
+            {this.state.postData}
+            <ReactPaginate
+                previousLabel={"previous"}
+                nextLabel={"next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={this.state.pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={this.handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}/>
+        </div>
+
     )
-  }
+}
 }
 
 export default CategoryPage
