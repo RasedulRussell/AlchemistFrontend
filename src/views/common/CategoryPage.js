@@ -58,6 +58,7 @@ receivedData() {
                 </Card.Text>
               </Card.Body>
               <Card.Footer>
+                Published: {contact.publishTime.substr(0, 10)} {contact.publishTime.substr(11, 8)} 
               </Card.Footer>
             </Card>
             }
@@ -111,4 +112,4 @@ render() {
 }
 }
 
-export default CategoryPage
+export default CategoryPage;

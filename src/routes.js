@@ -8,6 +8,7 @@ import Maps from "views/Maps.js";
 import Entertainment from "views/Entertainment.js";
 import Bangladesh from "views/Bangladesh.js";
 import Others from "views/Others.js";
+import Search from "views/Search";
 
 const dashboardRoutes = [
   
@@ -61,12 +62,20 @@ const dashboardRoutes = [
     layout: "/news",
   },
   {
+    path: "/search/:query",
+    name: "Search",
+    icon: "nc-icon nc-camera-20",
+    component: Search,
+    layout: "/news",
+  },
+  {
     path: "/others",
     name: "Others",
     icon: "nc-icon nc-paper-2",
     component: Others,
     layout: "/news",
   },
+  
 ];
 
 export default dashboardRoutes;
