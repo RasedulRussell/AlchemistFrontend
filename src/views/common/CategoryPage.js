@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
+import TimeAgo from 'javascript-time-ago'
+import ReactTimeAgo from 'react-time-ago'
+
+import en from 'javascript-time-ago/locale/en'
+TimeAgo.addDefaultLocale(en)
 
 import {
   Badge,
@@ -58,7 +63,11 @@ receivedData() {
                 </Card.Text>
               </Card.Body>
               <Card.Footer>
-                Published: {contact.publishTime.substr(0, 10)} {contact.publishTime.substr(11, 8)} 
+                <Row>
+                  <Col md={3}>{contact.category}</Col>
+                  <Col md={3}>prothonmALo</Col>
+                  <Col md={6}>Published: <ReactTimeAgo date={contact.publishTime} locale="en-US"/></Col>
+                </Row>
               </Card.Footer>
             </Card>
             }
