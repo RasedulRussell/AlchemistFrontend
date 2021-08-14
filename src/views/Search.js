@@ -40,7 +40,15 @@ class Search extends React.Component {
                 },
             )
     }
-
+    getNewspaperName(newsPaperUrl) {
+        if(newsPaperUrl.includes("samakal")) return "Samakal";
+        if(newsPaperUrl.includes("prothomalo")) return "Prothomalo";
+        if(newsPaperUrl.includes("kalerkantho")) return "Kalerkantho";
+        if(newsPaperUrl.includes("bdnews24")) return "Bdnews24";
+        if(newsPaperUrl.includes("thedailystar")) return "Thedailystar";
+        if(newsPaperUrl.includes("samakal")) return "samakal";
+        return "other";
+    }
     render() {
         return (
             <div>
@@ -57,7 +65,7 @@ class Search extends React.Component {
                                     <Row>
                                         <Col md={4}>{item.category}</Col>
                                         <Col md={4}><p>Published: <ReactTimeAgo date={item.publishTime} locale="en-US"/></p></Col>
-                                        <Col md={4}>{item.newspaper}</Col>
+                                        <Col md={4}>{this.getNewspaperName(item.url)}</Col>
                                     </Row>
                                 </Col>
                             </Row>

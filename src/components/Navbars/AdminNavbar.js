@@ -1,11 +1,23 @@
 
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
-
+import Marquee from "react-fast-marquee";
 import routes from "routes.js";
-
+import axios from "axios";
 function Header() {
+
+  const [newses, setData] = useState(undefined);
+
+  const getData = async () => {
+    const response = await axios.get("http://localhost:8080/articles")
+    const data = await response.data;
+    setData(data);
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+
   const location = useLocation();
   const mobileSidebarToggle = (e) => {
     e.preventDefault();
@@ -27,6 +39,7 @@ function Header() {
     }
     return "Brand";
   };
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -54,12 +67,18 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav mr-auto" navbar>
             <Nav.Item>
-             <Nav.Link>
-               
-             </Nav.Link>
-             <Nav.Link>
-               
-             </Nav.Link>
+              <Nav.Link>
+                <Marquee>
+                  {
+                    newses!=undefined ? newses.map(item=> {
+                      return <p>{item.title}</p>
+                    }): ""
+                  }
+                </Marquee>
+              </Nav.Link>
+              <Nav.Link>
+
+              </Nav.Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

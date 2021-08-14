@@ -33,6 +33,15 @@ class CategoryPage extends React.Component {
         .handlePageClick
         .bind(this);
 }
+getNewspaperName(newsPaperUrl) {
+  if(newsPaperUrl.includes("samakal")) return "Samakal";
+  if(newsPaperUrl.includes("prothomalo")) return "Prothomalo";
+  if(newsPaperUrl.includes("kalerkantho")) return "Kalerkantho";
+  if(newsPaperUrl.includes("bdnews24")) return "Bdnews24";
+  if(newsPaperUrl.includes("thedailystar")) return "Thedailystar";
+  if(newsPaperUrl.includes("samakal")) return "samakal";
+  return "other";
+}
 receivedData() {
     axios
         .get(this.props.url)
@@ -64,8 +73,8 @@ receivedData() {
               </Card.Body>
               <Card.Footer>
                 <Row>
-                  <Col md={3}>{contact.category}</Col>
-                  <Col md={3}>prothonmALo</Col>
+                  <Col md={3}><p>{contact.category}</p></Col>
+                  <Col md={3}>{this.getNewspaperName(contact.url)}</Col>
                   <Col md={6}>Published: <ReactTimeAgo date={contact.publishTime} locale="en-US"/></Col>
                 </Row>
               </Card.Footer>
