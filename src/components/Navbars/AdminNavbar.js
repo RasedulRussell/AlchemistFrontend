@@ -18,11 +18,15 @@
 import React, { Component } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
+const { useState ,useEffect } = React;
 
 import routes from "routes.js";
 
 function Header() {
+
   const location = useLocation();
+  const [searchText, setValue] = useState('ddd');
+
   const mobileSidebarToggle = (e) => {
     e.preventDefault();
     document.documentElement.classList.toggle("nav-open");
@@ -43,6 +47,20 @@ function Header() {
     }
     return "Brand";
   };
+
+  const handleChange = (value) => {
+    window.location.href = '/news/search/'+searchText;
+  }
+ 
+  useEffect(() => {
+
+      var searchBox = document.getElementById('search_input_box');
+      searchBox.onchange= (e) => {
+        setValue(e.target.value)
+      }
+  }, []) // this diff is necessary
+  
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -129,10 +147,14 @@ function Header() {
               <Nav.Link
                 className="m-0"
                 href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="nc-icon nc-zoom-split"></i>
-                <span className="d-lg-block"> Search</span>
+                onClick={(e) => e.preventDefault()}>
+
+                <input type="text" class="form-control" id="search_input_box" aria-label="Default" aria-describedby="inputGroup-sizing-default" onKeyDown={(e) => e.stopPropagation()}/>
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">
+                    <i className="nc-icon nc-zoom-split" onClick={handleChange}></i></span>
+                </div>
               </Nav.Link>
             </Nav.Item>
           </Nav>
