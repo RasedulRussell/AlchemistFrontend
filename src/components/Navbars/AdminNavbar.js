@@ -2,17 +2,13 @@
 import React, { Component, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
-<<<<<<< HEAD
 import Marquee from "react-fast-marquee";
-=======
-const { useState ,useEffect } = React;
 
->>>>>>> ed6a7f8f0b05427e45c74618b35d75ea25109377
+
 import routes from "routes.js";
 import axios from "axios";
 function Header() {
 
-<<<<<<< HEAD
   const [newses, setData] = useState(undefined);
 
   const getData = async () => {
@@ -24,8 +20,6 @@ function Header() {
     getData();
   }, []);
 
-=======
->>>>>>> ed6a7f8f0b05427e45c74618b35d75ea25109377
   const location = useLocation();
   const [searchText, setValue] = useState('ddd');
 
@@ -50,8 +44,6 @@ function Header() {
     return "Brand";
   };
 
-<<<<<<< HEAD
-=======
   const handleChange = (value) => {
     window.location.href = '/news/search/'+searchText;
   }
@@ -65,7 +57,6 @@ function Header() {
   }, []) // this diff is necessary
   
 
->>>>>>> ed6a7f8f0b05427e45c74618b35d75ea25109377
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -97,15 +88,11 @@ function Header() {
                 <Marquee>
                   {
                     newses!=undefined ? newses.map(item=> {
-                      return <p>{item.title}</p>
+                      return <p>{item.title + "...."} </p>
                     }): ""
                   }
                 </Marquee>
               </Nav.Link>
-<<<<<<< HEAD
-              <Nav.Link>
-
-=======
             </Nav.Item>
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
@@ -184,7 +171,6 @@ function Header() {
                 onClick={(e) => e.preventDefault()}
               >
                 <span className="no-icon">Log out</span>
->>>>>>> ed6a7f8f0b05427e45c74618b35d75ea25109377
               </Nav.Link>
             </Nav.Item>
           </Nav>
