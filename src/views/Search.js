@@ -55,13 +55,14 @@ class Search extends React.Component {
                 <Container fluid>
                     {
                         this.state.newses.map(item => (
-                            <Row className="justify-content-md-center" style={{marginTop:'15px', marginBottom:'15px'}}>
+                            <a href={item.url} target="fred" style={{color: 'black'}}>
+                            <Row  className="justify-content-md-center" style={{marginTop:'15px', marginBottom:'15px'}}>
                                 <Col md={2}>
                                     {item.mediaurl != null? <img height="100" width="100"  src={item.mediaurl} /> : ''}
                                 </Col>
                                 <Col md={10}  style={{marginLeft: '-50px'}}>
                                     <div>{item.title}</div>
-                                    <p>{item.details.substring(0, 200)}</p>
+                                    <p>{item.details.substring(0, 200) + "..."}</p>
                                     <Row>
                                         <Col md={4}>{item.category}</Col>
                                         <Col md={4}><p>Published: <ReactTimeAgo date={item.publishTime} locale="en-US"/></p></Col>
@@ -69,6 +70,7 @@ class Search extends React.Component {
                                     </Row>
                                 </Col>
                             </Row>
+                            </a>
                         ))}
                 </Container>
             </div>
