@@ -73,9 +73,9 @@ receivedData() {
               </Card.Body>
               <Card.Footer>
                 <Row>
-                  <Col md={3}><p>{contact.category}</p></Col>
-                  <Col md={3}>{this.getNewspaperName(contact.url)}</Col>
-                  <Col md={6}>Published: <ReactTimeAgo date={contact.publishTime} locale="en-US"/></Col>
+                  <Col md={4}>{contact.category}</Col>
+                  <Col md={4}>{this.getNewspaperName(contact.url)}</Col>
+                  <Col md={7}>Published: <ReactTimeAgo date={contact.publishTime} locale="en-US"/></Col>
                 </Row>
               </Card.Footer>
             </Card>
