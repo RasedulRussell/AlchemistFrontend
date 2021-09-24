@@ -58,11 +58,7 @@ function Header() {
   }, []) // this diff is necessary
   
   const styleObj = {
-    fontSize: 19,
-    color: "black",
-    textAlign: "center",
-    paddingTop: "2px",
-    fontWeight: "bold",
+    
 }
 
   return (
@@ -92,12 +88,12 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav mr-auto" navbar>
             <Nav.Item>
-                <Marquee style={{width:'560px', height:'50px', whiteSpace:'nowrap', background:"#00000000",}} velocity={10000} minScale={0.7} resetAfterTries={200} scatterRandomly>
+                <Marquee style={{width:'560px', height:'50px', whiteSpace:'nowrap',}} velocity={10000} minScale={0.7} resetAfterTries={200} scatterRandomly>
                   {
                     newses!=undefined ? newses.map(item=> {
                       return <a href={item.url} target="fred" style={{color: 'black'}}>
                           <p style={styleObj}>
-                            {item.title + "    "}
+                            {item.title}
                           </p>
                        </a>
                       

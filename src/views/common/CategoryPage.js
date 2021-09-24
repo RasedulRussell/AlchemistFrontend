@@ -67,7 +67,7 @@ receivedData() {
                 </Card.Title>
                 <Card.Text>
                 <a href={contact.url} target="fred" style={{color: 'black'}}>
-                    {contact.details}
+                    {contact.details.substring(0, 400) + "....."}
                 </a>
                 </Card.Text>
               </Card.Body>
