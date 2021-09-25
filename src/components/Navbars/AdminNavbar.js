@@ -12,7 +12,7 @@ function Header() {
   const [newses, setData] = useState(undefined);
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:8080/marque")
+    const response = await axios.get("http://localhost:8081/marque")
     const data = await response.data;
     setData(data);
   }
@@ -62,6 +62,20 @@ function Header() {
 }
 
   return (
+    <div>
+    <Marquee style={{width:'1200px', height:'30px', whiteSpace:'nowrap','background-color': '#f7f7f8', 'margin-top': '5px'}} 
+      velocity={2000} minScale={0.7} resetAfterTries={200} speed={100} scatterRandomly>
+      {
+        newses!=undefined ? newses.map(item=> {
+          return <a href={item.url} target="fred" style={{color: 'black'}}>
+              <p style={styleObj}>
+                {item.title + "... ..."}
+              </p>
+            </a>
+          
+        }): ""
+      }
+    </Marquee>
     <Navbar bg="light" expand="lg">
       <Container fluid>
         <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
@@ -85,32 +99,17 @@ function Header() {
           <span className="navbar-toggler-bar burger-lines"></span>
           <span className="navbar-toggler-bar burger-lines"></span>
         </Navbar.Toggle>
+        
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav mr-auto" navbar>
             <Nav.Item>
-                <Marquee style={{width:'560px', height:'50px', whiteSpace:'nowrap',}} velocity={10000} minScale={0.7} resetAfterTries={200} scatterRandomly>
-                  {
-                    newses!=undefined ? newses.map(item=> {
-                      return <a href={item.url} target="fred" style={{color: 'black'}}>
-                          <p style={styleObj}>
-                            {item.title}
-                          </p>
-                       </a>
-                      
-                    }): ""
-                  }
-                </Marquee>
-              
             </Nav.Item>
-            
             <Nav.Item>
               <Nav.Link
                 className="m-0"
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}>
-
                 <input type="text" class="form-control" id="search_input_box" aria-label="Default" aria-describedby="inputGroup-sizing-default" onKeyDown={(e) => e.stopPropagation()}/>
-
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-default">
                     <i className="nc-icon nc-zoom-split" onClick={handleChange}></i></span>
@@ -122,6 +121,7 @@ function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   );
 }
 
