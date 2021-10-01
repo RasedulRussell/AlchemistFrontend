@@ -63,8 +63,8 @@ function Header() {
 
   return (
     <div>
-    <Marquee style={{width:'1200px', height:'30px', whiteSpace:'nowrap','background-color': '#f7f7f8', 'margin-top': '5px'}} 
-      velocity={2000} minScale={0.7} resetAfterTries={200} speed={100} scatterRandomly>
+    <Marquee style={{width:'1200px', height:'35px', whiteSpace:'nowrap','background-color': '#f7f7f8', 'margin-top': '10px'}} 
+      velocity={2000} minScale={1} resetAfterTries={200} speed={100} scatterRandomly>
       {
         newses!=undefined ? newses.map(item=> {
           return <a href={item.url} target="fred" style={{color: 'black'}}>

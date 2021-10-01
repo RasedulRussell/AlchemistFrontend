@@ -42,11 +42,14 @@ class Search extends React.Component {
     }
     getNewspaperName(newsPaperUrl) {
         if(newsPaperUrl.includes("samakal")) return "Samakal";
-        if(newsPaperUrl.includes("prothomalo")) return "Prothomalo";
-        if(newsPaperUrl.includes("kalerkantho")) return "Kalerkantho";
-        if(newsPaperUrl.includes("bdnews24")) return "Bdnews24";
-        if(newsPaperUrl.includes("thedailystar")) return "Thedailystar";
-        if(newsPaperUrl.includes("samakal")) return "samakal";
+  if(newsPaperUrl.includes("prothomalo")) return "Prothomalo";
+  if(newsPaperUrl.includes("kalerkantho")) return "Kalerkantho";
+  if(newsPaperUrl.includes("bdnews24")) return "Bdnews24";
+  if(newsPaperUrl.includes("thedailystar")) return "Thedailystar";
+  if(newsPaperUrl.includes("samakal")) return "Samakal";
+  if(newsPaperUrl.includes("ittefaq")) return "Ittefaq";
+  if(newsPaperUrl.includes("jugantor")) return "Jugantor";
+  if(newsPaperUrl.includes("nayadiganta")) return "Nayadiganta";
         return "other";
     }
     render() {
